@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for f in Level-1*.sql
+for f in Level-*.sql
 do
     for i in `seq 1 10`;
     do  
