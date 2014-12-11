@@ -16,6 +16,7 @@ clear;
 cd Benchmark-Queries
 for f in Level-*.sql
 do
+    sudo service postgresql restart;
     echo "Running $f"
     for i in `seq 1 10`;
     do
@@ -24,5 +25,4 @@ do
         echo -e "Duration: \e[33m\e[1m" $(../helpers/get_times.sh $f) "ms \e[0m"
         kill -13 "$progPid";
     done
-    sudo service postgresql restart;
 done
