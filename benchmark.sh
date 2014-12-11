@@ -13,7 +13,7 @@ progress() {
 clear;
 
 
-cd Benchmark-Queries
+cd /home/ubuntu/Utils-Queries/Benchmark-Queries
 for f in Level-*.sql
 do
     echo "Running $f"
@@ -21,7 +21,8 @@ do
     do
         progress &
         progPid=$!
-        echo -e "Duration: \e[33m\e[1m" $(../helpers/get_times.sh $f) "ms \e[0m"
+        echo -e "Duration: \e[33m\e[1m" $(get_times $f) "ms \e[0m"
         kill -13 "$progPid";
     done
+    sudo service postgresql restart;
 done
