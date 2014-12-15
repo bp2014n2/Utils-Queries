@@ -13,6 +13,7 @@ VALUE=$2
 BACKUP="`grep "^$SET" $SETTINGS_FILE`"
 sudo sed -i -e "s/^$SET.*$/$SET = $VALUE/g" $SETTINGS_FILE
 
-../benchmark.sh
+cd..
+./benchmark.sh
 
 sudo sed -i -e "s/^$SET.*$/$BACKUP/g" $SETTINGS_FILE
