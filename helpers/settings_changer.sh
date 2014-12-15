@@ -10,7 +10,7 @@ SETTINGS_FILE="/etc/postgresql/9.3/main/postgresql.conf"
 SET=$1
 VALUE=$2
 
-BACKUP="`grep "^$SET" $SETTINGS_FILE`"
+BACKUP="`grep "^[# ]*$SET" $SETTINGS_FILE`"
 sudo sed -i -e "s/^[# ]*$SET.*$/$SET = $VALUE/g" $SETTINGS_FILE
 
 cd..
