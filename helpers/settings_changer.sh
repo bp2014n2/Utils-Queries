@@ -11,7 +11,7 @@ SET=$1
 VALUE=$2
 
 BACKUP="`grep "^$SET" $SETTINGS_FILE`"
-sudo sed -i -e "s/^$SET.*$/$SET = $VALUE/g" $SETTINGS_FILE
+sudo sed -i -e "s/^[# ]*$SET.*$/$SET = $VALUE/g" $SETTINGS_FILE
 
 cd..
 ./benchmark.sh
