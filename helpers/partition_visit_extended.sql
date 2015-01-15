@@ -54,7 +54,7 @@ CREATE TABLE i2b2demodata.visit_dimension_a2017 (
 CREATE OR REPLACE FUNCTION visit_dimension_insert_trigger()
 RETURNS TRIGGER AS $$
 BEGIN
-  IF (start_date < TIMESTAMP '2007-01-01 00:00:00') THEN
+  IF (NEW.start_date < TIMESTAMP '2007-01-01 00:00:00') THEN
     INSERT INTO i2b2demodata.visit_dimension_b2007 VALUES (NEW.*);
   ELSIF (NEW.start_date >= TIMESTAMP '2007-01-01 00:00:00' AND NEW.start_date < TIMESTAMP '2008-01-01 00:00:00') THEN
     INSERT INTO i2b2demodata.visit_dimension_2007 VALUES (NEW.*);
